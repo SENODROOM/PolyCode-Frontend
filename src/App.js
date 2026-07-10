@@ -65,6 +65,14 @@ const JsFundamentalsHub = lazy(
 const JsFundamentalsLessonPage = lazy(
   () => import("./features/learn/js-fundamentals/pages/JsFundamentalsLessonPage"),
 );
+const SqlHub = lazy(() => import("./features/learn/sql/pages/SqlHub"));
+const SqlLessonPage = lazy(
+  () => import("./features/learn/sql/pages/SqlLessonPage"),
+);
+const PowerShellHub = lazy(() => import("./features/learn/powershell/pages/PowerShellHub"));
+const PowerShellLessonPage = lazy(
+  () => import("./features/learn/powershell/pages/PowerShellLessonPage"),
+);
 
 const PageFallback = () => (
   <div className="loading">
@@ -355,6 +363,10 @@ function AppRoutes() {
       path.startsWith("/learn/pointers-cpp")
     ) {
       handleLanguageSelect("C++", { stay: true });
+    } else if (path.startsWith("/learn/sql")) {
+      handleLanguageSelect("SQL", { stay: true });
+    } else if (path.startsWith("/learn/powershell")) {
+      handleLanguageSelect("PowerShell", { stay: true });
     }
   }, [location.pathname, handleLanguageSelect]);
 
@@ -648,6 +660,96 @@ function AppRoutes() {
                 selectedLanguage={selectedLanguage}
               >
                 <JsFundamentalsLessonPage />
+              </LearnShell>
+            </ThemedShell>
+          }
+        />
+        <Route
+          path="/learn/sql"
+          element={
+            <ThemedShell theme={theme}>
+              <LearnShell
+                theme={theme}
+                onToggleTheme={toggleTheme}
+                onGoToStackPicker={goToStackPicker}
+                selectedLanguage={selectedLanguage}
+              >
+                <SqlHub />
+              </LearnShell>
+            </ThemedShell>
+          }
+        />
+        <Route
+          path="/learn/sql/lesson/:lessonId"
+          element={
+            <ThemedShell theme={theme}>
+              <LearnShell
+                theme={theme}
+                onToggleTheme={toggleTheme}
+                onGoToStackPicker={goToStackPicker}
+                selectedLanguage={selectedLanguage}
+              >
+                <SqlLessonPage />
+              </LearnShell>
+            </ThemedShell>
+          }
+        />
+        <Route
+          path="/learn/sql/:lessonId"
+          element={
+            <ThemedShell theme={theme}>
+              <LearnShell
+                theme={theme}
+                onToggleTheme={toggleTheme}
+                onGoToStackPicker={goToStackPicker}
+                selectedLanguage={selectedLanguage}
+              >
+                <SqlLessonPage />
+              </LearnShell>
+            </ThemedShell>
+          }
+        />
+        <Route
+          path="/learn/powershell"
+          element={
+            <ThemedShell theme={theme}>
+              <LearnShell
+                theme={theme}
+                onToggleTheme={toggleTheme}
+                onGoToStackPicker={goToStackPicker}
+                selectedLanguage={selectedLanguage}
+              >
+                <PowerShellHub />
+              </LearnShell>
+            </ThemedShell>
+          }
+        />
+        <Route
+          path="/learn/powershell/lesson/:lessonId"
+          element={
+            <ThemedShell theme={theme}>
+              <LearnShell
+                theme={theme}
+                onToggleTheme={toggleTheme}
+                onGoToStackPicker={goToStackPicker}
+                selectedLanguage={selectedLanguage}
+              >
+                <PowerShellLessonPage />
+              </LearnShell>
+            </ThemedShell>
+          }
+        />
+        <Route
+          path="/learn/powershell/:lessonId"
+          element={
+            <ThemedShell theme={theme}>
+              <LearnShell
+                theme={theme}
+                onToggleTheme={toggleTheme}
+                onGoToStackPicker={goToStackPicker}
+                selectedLanguage={selectedLanguage}
+              >
+                <PowerShellLessonPage />
               </LearnShell>
             </ThemedShell>
           }

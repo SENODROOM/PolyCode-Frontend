@@ -77,6 +77,13 @@ const languageMeta = {
     description:
       "Query data, shape tables, reason about joins, and learn database habits that scale.",
   },
+  powershell: {
+    name: "PowerShell",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg",
+    color: "#012456",
+    description:
+      "Automate tasks, manage configurations, and unleash the power of the command line.",
+  },
 };
 
 function normalizeLanguage(value = "") {
