@@ -110,6 +110,26 @@ export const languageCourses = {
       accent: "#f59e0b",
     },
   ],
+  sql: [
+    {
+      title: "SQL Interactive Course",
+      tag: "Data Course",
+      icon: Table2,
+      description: "Intro to SQL, Querying Data, Filtering, and hands-on SQL challenges.",
+      href: "/learn/sql",
+      accent: "#3b82f6",
+    },
+  ],
+  powershell: [
+    {
+      title: "PowerShell Interactive Course",
+      tag: "Automation Course",
+      icon: Boxes,
+      description: "Intro to PowerShell, Cmdlets & Aliases, Pipelines, and hands-on PowerShell challenges.",
+      href: "/learn/powershell",
+      accent: "#5391fe",
+    },
+  ],
 };
 
 /** Navbar learn links per language (mirrors languageCourses). */
@@ -127,6 +147,8 @@ export const learnNavByLanguage = {
     { label: "Pandas", to: "/learn/pandas-py" },
   ],
   javascript: [{ label: "JS Basics", to: "/learn/js-fundamentals" }],
+  sql: [{ label: "SQL Course", to: "/learn/sql" }],
+  powershell: [{ label: "PowerShell", to: "/learn/powershell" }],
 };
 
 /** Infer stack from an active /learn/* route when language is not set. */
@@ -145,6 +167,12 @@ export function inferLanguageFromLearnPath(pathname = "") {
   }
   if (pathname.startsWith("/learn/js-fundamentals")) {
     return "javascript";
+  }
+  if (pathname.startsWith("/learn/sql")) {
+    return "sql";
+  }
+  if (pathname.startsWith("/learn/powershell")) {
+    return "powershell";
   }
   return null;
 }
